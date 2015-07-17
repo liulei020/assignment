@@ -11,14 +11,14 @@ public class IDCard {
 	static String[] temp;
 	public static void inputData(){
 		Scanner scanner = new Scanner(System.in);
-	    str= scanner.nextLine();
+		str= scanner.nextLine();
 		temp = str.split(" ");
 	}
-	
+
 	public static void isDigit(){
 		try{
 			int k=0;
-		    idnum =Integer.parseInt(temp[k]);
+			idnum =Integer.parseInt(temp[k]);
 			if(idnum<0 && idnum>9){
 				throw Exception;
 			} 
@@ -32,14 +32,14 @@ public class IDCard {
 			}
 		}
 	}
-	
+
 	static double getSum(ArrayList<Integer> group){
 		double sum=0;
 		int[] coefficient= {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
-			for(int i=0;i<17;i++){
-				sum+=coefficient[i]*group.get(i);
-				//System.out.println(sum);
-			}
+		for(int i=0;i<17;i++){
+			sum+=coefficient[i]*group.get(i);
+			//System.out.println(sum);
+		}
 		return sum;
 	}
 	public static ArrayList<Integer> getRemainder(){
@@ -53,7 +53,7 @@ public class IDCard {
 			}
 		}
 		return remaininder;
-		
+
 	}
 	public static void judge(){
 		for(int i=0;i<17;i++){
@@ -74,12 +74,12 @@ public class IDCard {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    group = new ArrayList<Integer>();
+		group = new ArrayList<Integer>();
 		inputData();
 		isDigit();
 		System.out.println(getSum(group));
 		System.out.println(getRemainder());
-		
+
 	}
 
 }
