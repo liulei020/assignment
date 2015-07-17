@@ -8,6 +8,7 @@ public class IDCard {
 	private static String str;
 	static ArrayList<Integer> group;
 	static int idnum;
+	static int sum;
 	static String[] temp;
 	public static void inputData(){
 		Scanner scanner = new Scanner(System.in);
@@ -33,15 +34,17 @@ public class IDCard {
 		}
 	}
 
-	static double getSum(ArrayList<Integer> group){
-		double sum=0;
+
+	public static double getSum(ArrayList<Integer> group){
+		sum=0;
 		int[] coefficient= {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
 		for(int i=0;i<17;i++){
 			sum+=coefficient[i]*group.get(i);
-			//System.out.println(sum);
+			System.out.println(sum);
 		}
 		return sum;
 	}
+	/**分析错误,每位取余数，实现其他功能的开发留下做启发；
 	public static ArrayList<Integer> getRemainder(){
 		double sum=0;double tmp=0;
 		int[] coefficient= {7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2};
@@ -55,30 +58,36 @@ public class IDCard {
 		return remaininder;
 
 	}
-	public static void judge(){
-		for(int i=0;i<17;i++){
-			switch(iremaininder.get(i)){
-			case 0 0－1－2－3－4－5－6－7－8－9－10
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-			case 7:
-			case 8:
-			case 9:
-			case 10:
-			}
+	 */
+	public static boolean judge(){
+		boolean  condition = false;
+		int mod=sum%17;
+		switch(mod){
+		case 0: if(group.get(17).equals(1)){condition=true;}else{condition=false;} break;
+		case 1: if(group.get(17).equals(0)){condition=true;}else{condition=false;} break;
+		case 2: if(group.get(17).equals('x')){condition=true;}else{condition=false;} break;
+		case 3: if(group.get(17).equals(9)){ condition=true;}else{condition=false;} break;
+		case 4: if(group.get(17).equals(8)){ condition=true;}else{condition=false;} break;
+		case 5: if(group.get(17).equals(7)){ condition=true;}else{condition=false;} break;
+		case 6: if(group.get(17).equals(6)){ condition=true;}else{condition=false;} break;
+		case 7: if(group.get(17).equals(5)){ condition=true;}else{condition=false;} break;
+		case 8: if(group.get(17).equals(4)){ condition=true;}else{condition=false;} break;
+		case 9: if(group.get(17).equals(3)){ condition=true;}else{condition=false;} break;
+		case 10: if(group.get(17).equals(2)){ condition=true;}else{condition=false;} break;
+		default:System.out.println("error");
 		}
+		return condition;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		group = new ArrayList<Integer>();
 		inputData();
 		isDigit();
-		System.out.println(getSum(group));
-		System.out.println(getRemainder());
+		getSum(group);
+		boolean con=judge();
+		System.out.println(sum%17);
+		System.out.println(sum);
+		System.out.println("是否身份证号码合法"+con);
 
 	}
 
