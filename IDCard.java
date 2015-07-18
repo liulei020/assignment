@@ -91,7 +91,7 @@ public class IDCard {
 		case 8: if(arr[17].equals("4")){ condition=true;}else{condition=false;} break;
 		case 9: if(arr[17].equals("3")){ condition=true;}else{condition=false;} break;
 		case 10: if(arr[17].equals("2")){ condition=true;}else{condition=false;} break;
-		default:System.out.println("error");
+		default:condition=false;break;
 		}
 		return condition;
 	}
