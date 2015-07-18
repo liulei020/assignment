@@ -3,45 +3,85 @@ package Exam01;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SameString {
-
-	static String str;
-	static ArrayList<String> group,gp;
-	static String[] temp;
-
-	public static void inputData(){
-		Scanner scanner = new Scanner(System.in);
-		str= scanner.nextLine();
-		temp = str.split(" ");
-		for(int k= 0;k <temp.length;k++){
+public class Substring {
+	public static String str;
+	public static char[] trans; 
+	public static String fetch;
+	public static ArrayList<String> group;
+	//从键盘输入若干字符串，并储存到一个ArryList方便调用；
+	public void inputData(){
+		group = new ArrayList<String>();
+		do{
+			Scanner scanner = new Scanner(System.in);
+			System.out.println(" Please input Strings,write 'over' to quit ：");
+			str= scanner.next();
 			group.add(str);
+			System.out.println("DownLoading:"+group);
+		}while(!str.equals("over"));
+	}
+
+	public void getSubstring(){
+		fetch=new String();
+		for(int i=0;i<group.size()-1;i++){
+			fetch=group.get(i);
+			System.out.println("group.git(i):"+group.get(i));
+			System.out.println("String:"+fetch);
+		}
+		trans= fetch.toCharArray();
+		for(int j=0;j<fetch.length();j++){
+			System.out.print("字符数组："+trans[j]);
 		}
 	}
-	public void judeg(){
-		//拿第一个字符串去和后面的去比较，存入一个arrylist,相同的用冒泡法则去排序（。lenth），输出第一个便是最长的。
-		gp= new ArrayList<String>();
-		for(int i=0;i<temp.length;i++){
-			if(group.get(i).equals(group.get(i+1))){
 
-			}
-		}
-		String tmp;
-		for(int j=0;j<gp.size();j++){
-			for(int k=0;k<gp.size()-j;k++)
-				tmp=gp.get(k);
-			gp.get(k)=gp.get(k+1);
-			gp.get(k+1)=tmp;
-		}
+	public static void dataDispose(){
 
 	}
 	public static void main(String[] args) {
-		// 从键盘输入一串字符串，空格隔开，就将其分为几个小的字符串。然后对几个小的字符串进行比对
-
-		System.out.println("请输入若干字符串，以空格隔开：");
-		group= new ArrayList<String>();
-		inputData();
-		ArrayList<String> group= new ArrayList<String>();
+		System.out.println();
+		Text sub=new Text();
+		sub.inputData();
+		sub.getSubstring();
 
 	}
-
 }
+
+
+		
+	
+/**
+1.定义一个str a接收字符串
+
++1. a--arrlist group
+
+2. arr.0 中 a.0 check all. no stop,send same to new arrlist b  ;
+   b.0.len+1 start a.0 check  same stop,send no to b.1;
+   ...a.length over
+
+   构造两个判断方法 about no/same
+   b.i 偶数存储相同子字符串
+
+3. 提取b的偶数判断长度，冒泡排序。首部或尾部一定是最长或最短。
+
+4. 提取b.偶数组.最长的字符串，并提取其长度。
+
+5. 重复2。a.1 start. until arr.length over
+
+6. 比较提取出的子字符串长度 。最长输出。相同 ，计算asII, min out.
+
+   
+
+   
+   Q1:                                  i  j         i-i j-j
+     字符串--al字符数组--字符数组0               元素0与1比较    满足---0-0 1-1     StringBufer subs={0=eg‘a’接same，no break}
+                                
+                                                      2        满足-- 0-0 2-2
+                                                      3
+                                                     ...
+
+                                                                                                            位置subs.length开始，元素0与+1比较     满足--            subs={subs.length=‘b’接no，same break}
+                                                     +2   
+                                                     +3
+                                                     ...
+                                              
+                                               to be contnue..until arr[0].length
+*/
