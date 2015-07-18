@@ -16,8 +16,8 @@ public class IDCard {
 	public static void inputData(){
 		Scanner scanner = new Scanner(System.in);
 		str= scanner.next();
-		arr=new String[18];
-		for(int i=0;i<18;i++){
+		arr=new String[str.length()];
+		for(int i=0;i<str.length();i++){
 			arr[i] = str.substring(i, (i+1));
 		}
 	}	
@@ -30,6 +30,9 @@ public class IDCard {
 				//System.out.println("DownLoading:"+group);
 			}
 			if(idnum<0 || idnum>9){
+				throw Exception;
+			}
+			if(arr.length!=18){
 				throw Exception;
 			}
 		}catch(Exception e){
