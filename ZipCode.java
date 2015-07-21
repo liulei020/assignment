@@ -20,7 +20,7 @@ public class ZipCode {
 			}
 			letters +=getMatch(s);
 		}
-		System.out.println("属于中国'四级六位制'的邮政编码为   ："+letters);
+		System.out.println("属于中国(四级六位制)的邮政编码为   ："+letters);
 	}
 
 	private static String getMatch(String s) {
@@ -35,7 +35,7 @@ public class ZipCode {
 		Matcher m = pattern.matcher(s);
 		String matches = "";
 		while(m.find()){
-			matches +="["+m.group(0)+"]；";
+			matches +="["+m.group(0)+"]  ";
 		}
 		return matches;
 	}
