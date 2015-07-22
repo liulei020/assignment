@@ -29,6 +29,7 @@ public class Student {
 	public int[] cet4_scores(){
 		return cet4_scores;
 	}
+
 	public void level_up(){
 		grade++;
 	}
@@ -42,6 +43,7 @@ public class Student {
 		return false;
 
 	}
+
 	public void printInfo(){
 		System.out.println("Student's Name  :"+getName()+"\n");
 		System.out.println("Student's Grade :"+getGrade()+"\n");
