@@ -9,10 +9,9 @@ public class ShapeOfExam {
 	public double getLength(){
 		return length;
 	}
-	public double getArea(){
+	public double getArea() {
 		return 0;
 	}
-
 }
 
 

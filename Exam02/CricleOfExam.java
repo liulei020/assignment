@@ -7,7 +7,8 @@ public class CricleOfExam extends ShapeOfExam {
 	public CricleOfExam(double length) {
 		super(length);
 	}
-	public  double get_Area(){
+
+	public double getArea() {
 		return Math.PI*getLength()*getLength();
 	}
 
